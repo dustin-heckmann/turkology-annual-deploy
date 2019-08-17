@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  ta-db:
+    image: mongo:4.0
+    restart: always
+    ports:
+      - "27017:27017"
+  ta-parser:
+    image: $PARSER_IMAGE
+    depends_on:
+      - ta-db
