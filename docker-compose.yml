@@ -7,5 +7,30 @@ services:
       - "27017:27017"
   ta-parser:
     image: $PARSER_IMAGE
+    environment:
+      - MONGODB_HOST=ta-db
+      - MONGODB_PORT=27017
+      - MONGODB_DATABASE=turkology
     depends_on:
       - ta-db
+  ta-backend:
+    image: $BACKEND_IMAGE
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGODB_HOST=ta-db
+      - MONGODB_PORT=27017
+      - MONGODB_DATABASE=turkology
+    depends_on:
+      - ta-db
+  ta-frontend:
+    image: $FRONTEND_IMAGE
+    environment:
+      - API_HOST=ta-backend
+      - API_PORT=5000
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - ta-backend
