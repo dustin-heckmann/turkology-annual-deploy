@@ -3,8 +3,8 @@ services:
   ta-db:
     image: mongo:4.0
     restart: always
-    ports:
-      - "27017:27017"
+    expose:
+      - "27017"
   ta-parser:
     image: $PARSER_IMAGE
     environment:
@@ -16,8 +16,8 @@ services:
   ta-backend:
     image: $BACKEND_IMAGE
     restart: always
-    ports:
-      - "5000:5000"
+    expose:
+      - "5000"
     environment:
       - MONGODB_HOST=ta-db
       - MONGODB_PORT=27017
