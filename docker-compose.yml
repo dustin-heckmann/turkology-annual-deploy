@@ -12,7 +12,7 @@ services:
       - ELASTIC_HOST=${ELASTIC_HOST}
       - ELASTIC_INDEX=${ELASTIC_INDEX}
     depends_on:
-      - ta-db
+      - ta-index
   ta-backend:
     image: ${BACKEND_IMAGE}
     restart: always
@@ -23,7 +23,7 @@ services:
       - ELASTIC_INDEX=${ELASTIC_INDEX}
       - FLASK_SECRET_KEY=${FLASK_SECRET_KEY}
     depends_on:
-      - ta-db
+      - ta-index
   ta-frontend:
     image: ${FRONTEND_IMAGE}
     environment:
