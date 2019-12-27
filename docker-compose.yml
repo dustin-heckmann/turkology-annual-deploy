@@ -1,16 +1,16 @@
 version: "3.7"
 services:
-  ta-db:
-    image: mongo:4.0
-    restart: always
+  ta-index:
+    image: elasticsearch:7.5.1
     expose:
-      - "27017"
+      - "9200"
+    environment:
+      - discovery.type=single-node
   ta-parser:
     image: ${PARSER_IMAGE}
     environment:
-      - MONGODB_HOST=${MONGODB_HOST}
-      - MONGODB_PORT=${MONGODB_PORT}
-      - MONGODB_DATABASE=${MONGODB_DATABASE}
+      - ELASTIC_HOST=${ELASTIC_HOST}
+      - ELASTIC_INDEX=${ELASTIC_INDEX}
     depends_on:
       - ta-db
   ta-backend:
@@ -19,9 +19,8 @@ services:
     expose:
       - "5000"
     environment:
-      - MONGODB_HOST=${MONGODB_HOST}
-      - MONGODB_PORT=${MONGODB_PORT}
-      - MONGODB_DATABASE=${MONGODB_DATABASE}
+      - ELASTIC_HOST=${ELASTIC_HOST}
+      - ELASTIC_INDEX=${ELASTIC_INDEX}
       - FLASK_SECRET_KEY=${FLASK_SECRET_KEY}
     depends_on:
       - ta-db
