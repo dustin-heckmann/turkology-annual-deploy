@@ -1,11 +1,9 @@
 version: "3.7"
 services:
   ta-index:
-    image: elasticsearch:7.5.1
     ports:
       - "9200:9200"
-    environment:
-      - discovery.type=single-node
+
   ta-backend:
     ports:
       - "${API_PORT}:${API_PORT}"
