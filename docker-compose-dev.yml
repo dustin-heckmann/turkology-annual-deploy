@@ -3,14 +3,11 @@ services:
   ta-index:
     ports:
       - "9200:9200"
-
   ta-backend:
     ports:
-      - "${API_PORT}:${API_PORT}"
+      - "8080:8080"
+  ta-statistics-backend:
+    ports:
+      - "5000:5000"
     environment:
       - FLASK_ENV=development
-      - API_PORT=${API_PORT}
-  ta-frontend:
-    environment:
-      - API_HOST=${API_HOST}
-      - API_PORT=${API_PORT}
