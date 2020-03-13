@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 COMPOSE=docker-compose
 case "$env" in
- prod) COMPOSE=docker-compose ;;
- *) COMPOSE='docker-compose -f docker-compose.yml -f docker-compose-dev.yml' ;;
+ dev) COMPOSE='docker-compose -f docker-compose.yml -f docker-compose-dev.yml' ;;
+ *) COMPOSE=docker-compose ;;
 esac
 
 printf '\n============================================\n'
