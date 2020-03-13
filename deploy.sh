@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
+
+ENV=${ENV:-prod}
+export TA_PORT=${PORT:-80}
+
 COMPOSE=docker-compose
-case "$env" in
+case "$ENV" in
  dev) COMPOSE='docker-compose -f docker-compose.yml -f docker-compose-dev.yml' ;;
- *) COMPOSE=docker-compose ;;
+ prod) COMPOSE=docker-compose ;;
 esac
 
 printf '\n============================================\n'

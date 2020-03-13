@@ -39,4 +39,4 @@ services:
     image: ${FRONTEND_IMAGE}
     restart: always
     ports:
-      - "${FRONTEND_PORT}:80"
+      - "${TA_PORT}:80"
