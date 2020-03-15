@@ -6,9 +6,10 @@ Deployment script for Turkology Annual Online
 
 ## Requirements
 
+The following software is required to run the deployment script:
+
 - [docker](https://docs.docker.com)
 - [docker-compose](https://docs.docker.com/compose/)
-- [Docker Hub account](https://docs.docker.com/docker-hub/) in order to pull the required images
 
 ## Deployment
 
