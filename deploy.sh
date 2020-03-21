@@ -30,12 +30,12 @@ docker ps
 
 printf '\n============================================\n'
 
-printf '\nParsing OCR data...\n\n'
-$COMPOSE up ta-parser
 
 printf '\nStarting index...\n\n'
-
 $COMPOSE up -d ta-index 
+
+printf '\nParsing OCR data...\n\n'
+$COMPOSE up ta-parser
 
 printf '\nLoading data into index...\n\n'
 $COMPOSE up ta-index-import

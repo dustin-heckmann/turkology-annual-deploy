@@ -23,7 +23,6 @@ services:
       - ELASTIC_HOST
       - ELASTIC_INDEX
     depends_on:
-      - ta-parser
       - ta-index
   ta-backend:
     image: ${BACKEND_IMAGE}
