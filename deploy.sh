@@ -29,9 +29,19 @@ printf '\nCurrently running containers:\n\n'
 docker ps
 
 printf '\n============================================\n'
-printf '\nUpdating containers...\n\n'
 
-$COMPOSE up -d --build
+printf '\nParsing OCR data...\n\n'
+$COMPOSE up ta-parser
+
+printf '\nStarting index...\n\n'
+
+$COMPOSE up -d ta-index 
+
+printf '\nLoading data into index...\n\n'
+$COMPOSE up ta-index-import
+
+printf '\nStarting application...\n\n'
+$COMPOSE up -d ta-backend ta-statistics-backend ta-frontend 
 
 printf '\n============================================\n'
 printf '\nCurrently running containers:\n\n'
