@@ -39,8 +39,5 @@ This script deploys the following services:
 - ta-backend
   - Github: https://github.com/dustin-heckmann/turkology-annual-backend
   - Docker image: https://hub.docker.com/repository/docker/dustinheckmann/turkology-annual-backend
-- ta-statistics-backend
-  - Github: https://github.com/dustin-heckmann/turkology-annual-statistics-backend
-  - Docker image: https://hub.docker.com/repository/docker/dustinheckmann/turkology-annual-statistics-backend
 - ta-index
   - using Elasticsearch

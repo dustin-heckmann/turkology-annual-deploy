@@ -32,15 +32,6 @@ services:
     environment:
       - ELASTIC_HOST
       - ELASTIC_INDEX
-  ta-statistics-backend:
-    image: ${STATISTICS_BACKEND_IMAGE}
-    restart: always
-    expose:
-      - "5000"
-    environment:
-      - ELASTIC_HOST
-      - ELASTIC_INDEX
-      - FLASK_SECRET_KEY
   ta-frontend:
     image: ${FRONTEND_IMAGE}
     volumes:
