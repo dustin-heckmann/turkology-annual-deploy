@@ -41,7 +41,7 @@ printf '\nLoading data into index...\n\n'
 $COMPOSE up ta-index-import
 
 printf '\nStarting application...\n\n'
-$COMPOSE up -d ta-backend ta-statistics-backend ta-frontend 
+$COMPOSE up -d ta-backend ta-frontend 
 
 printf '\n============================================\n'
 printf '\nCurrently running containers:\n\n'
