@@ -3,7 +3,7 @@ services:
   ta-parser:
     image: ${PARSER_IMAGE}
     volumes:
-      - ./ta-data:/ta-data
+      - ./ta-data:/ta-data:rw
   ta-index:
     image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.7.2
     expose:
@@ -18,7 +18,7 @@ services:
   ta-index-import:
     image: ${INDEX_IMPORT_IMAGE}
     volumes:
-      - ./ta-data:/ta-data
+      - ./ta-data:/ta-data:ro
     environment:
       - ELASTIC_HOST
       - ELASTIC_INDEX
@@ -43,9 +43,8 @@ services:
       - FLASK_SECRET_KEY
   ta-frontend:
     image: ${FRONTEND_IMAGE}
+    volumes:
+      - ./ta-data/turkology_annual_export.zip:/ta-data/turkology_annual_export.zip:ro
     restart: always
     ports:
       - "${TA_PORT}:80"
-
-volumes:
-  ta-data:

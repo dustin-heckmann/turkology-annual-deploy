@@ -1,0 +1,61 @@
+=================
+CONTENT
+================
+
+html/                        Static HTML pages: Home page (en/de), Prefaces (de)
+ta_citations.json            JSON export of Turkology Annual citations
+ta_citations.jsonl           JSON Lines (jsonlines.org) export of Turkology Annual citations
+
+
+=================
+JSON FORMAT
+=================
+
+NOTES
+- Not all attributes are present in all citations (either because they are missing or they are not applicable to the publication type)
+- There is currently no "monograph" publication type assigned. Monographs have no type or a wrong type assigned.
+
+volume:          The number of the Turkology Annual volume the contained in
+number:          Consecutive number of the citation within the volume
+type:            Publication type (article (Artikel), collection (Sammelband), conference (Konferenzbericht) - NOTE: monograph is currently missing
+title:           Title of the publication
+keywords:        List of keywords a publication belongs to
+location:        Location of publication
+datePublished:   Date published
+numberOfPages:   Number of pages of the publication
+series:          Series a publication appeared in
+numberOfVolumes: Number of volumes
+editors:         List of editors (see NAMES)
+authors:         List of authors (see NAMES)
+fullyParsed:     Whether the citation is fully parsed (true/false), i.e. all text could be assigned to fields
+rawText:         The raw text of the whole citation as obtained from OCR
+comment:         Various: e.g. translation of title, reference to other TA citations 
+
+in:              Where the publication appeared in
+  type:          journal / ta (reference to other TA citation)
+  year
+  volume:        TA volume
+  number:        TA consecutive entry number
+  journal:       Journal name (abbreviation)
+  issue:         Journal issue
+  pageStart
+  pageEnd
+  raw:           Raw, unparsed version of the reference
+
+material:        List of material (maps, tables) contained in the publication
+  type:          map, table, figure
+  count:         count of material (e.g. "3" in "3 maps")
+  raw:           Raw, unparsed material description as obtained from OCR 
+
+amendments:      List of amendments, e.g. reference to reviews, reports
+reviews:         List of reviews about the publication (unparsed)
+
+----------
+NAMES
+---------
+
+first:          First name
+middle:         Midle name
+last:           Last name
+suffix:         Name suffix (seems misclassified most of the time)
+raw:            Raw, unparsed name obtained from OCR
